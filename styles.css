@@ -22,6 +22,23 @@ body{
     margin-right: 10%;
     margin-top: 2%;
 }
+.navbar{
+    background-color: #f5f6f2;
+    color: #180c42;
+    font-size: medium;
+    cursor: pointer;
+    border-radius: 2in;
+}
+
+
+.lista {
+    background-color: #f5f6f2;
+    color: #180c42;
+    font-size: medium;
+    cursor: pointer;
+    border-radius: 2in;
+    align-self: flex-end;
+}
 
 .textbox{
     background-color: #f5f6f2;
@@ -73,4 +90,85 @@ table {
     background-color: rgb(185, 221, 248);
     margin-trim: all;
     text-align: center;
+}
+
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    // stylelint-disable-next-line scss/selector-no-union-class-name
+    &#{$infix} {
+      @include media-breakpoint-up($next) {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        .navbar-nav {
+          flex-direction: row;
+
+          .dropdown-menu {
+            position: absolute;
+          }
+
+          .nav-link {
+            padding-right: var(--#{$prefix}navbar-nav-link-padding-x);
+            padding-left: var(--#{$prefix}navbar-nav-link-padding-x);
+          }
+        }
+
+        .navbar-nav-scroll {
+          overflow: visible;
+        }
+
+        .navbar-collapse {
+          display: flex !important; // stylelint-disable-line declaration-no-important
+          flex-basis: auto;
+        }
+
+        .navbar-toggler {
+          display: none;
+        }
+
+        .offcanvas {
+          // stylelint-disable declaration-no-important
+          position: static;
+          z-index: auto;
+          flex-grow: 1;
+          width: auto !important;
+          height: auto !important;
+          visibility: visible !important;
+          background-color: transparent !important;
+          border: 0 !important;
+          transform: none !important;
+          @include box-shadow(none);
+          @include transition(none);
+          // stylelint-enable declaration-no-important
+
+          .offcanvas-header {
+            display: none;
+          }
+
+          .offcanvas-body {
+            display: flex;
+            flex-grow: 0;
+            padding: 0;
+            overflow-y: visible;
+          }
+        }
+      }
+    }
+  }
+}
+.list-group-item-#{$state} {
+    --#{$prefix}list-group-color: var(--#{$prefix}#{$state}-text-emphasis);
+    --#{$prefix}list-group-bg: var(--#{$prefix}#{$state}-bg-subtle);
+    --#{$prefix}list-group-border-color: var(--#{$prefix}#{$state}-border-subtle);
+    --#{$prefix}list-group-action-hover-color: var(--#{$prefix}emphasis-color);
+    --#{$prefix}list-group-action-hover-bg: var(--#{$prefix}#{$state}-border-subtle);
+    --#{$prefix}list-group-action-active-color: var(--#{$prefix}emphasis-color);
+    --#{$prefix}list-group-action-active-bg: var(--#{$prefix}#{$state}-border-subtle);
+    --#{$prefix}list-group-active-color: var(--#{$prefix}#{$state}-bg-subtle);
+    --#{$prefix}list-group-active-bg: var(--#{$prefix}#{$state}-text-emphasis);
+    --#{$prefix}list-group-active-border-color: var(--#{$prefix}#{$state}-text-emphasis);
+  }
 }
