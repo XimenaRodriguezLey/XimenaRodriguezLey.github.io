@@ -8,7 +8,68 @@
 </head>
 <body>
     <form action="">
+        <h2>Operaciones con Variables</h2>
+        <p>Ingrese el valor de a:</p>
+        <input type="number" class="textbox" id="a">
+        <p>Ingrese el valor de b:</p>
+        <input type="number" class="textbox" id="b">
+        
+        <h2>Seleccione una operación</h2>
+
+        <input type="button" class="boton" value="Suma" onclick="calcular('suma')"><br>
+        <input type="button" class="boton" value="Resta" onclick="calcular('resta')"><br>
+        <input type="button" class="boton" value="División" onclick="calcular('division')"><br>
+        <input type="button" class="boton" value="Multiplicación" onclick="calcular('multiplicacion')"> <br>
+        <input type="button" class="boton" value="Limpiar" onclick="limpiar(limpiar)"><br>
+        
+        <h3>Resultado: <span id="resultado">Esperando operación...</span></h3>
+
         <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> 
     </form>
+
+    <script>
+        function calcular(operacion) {
+            const valA = parseFloat(document.getElementById('a').value);
+            const valB = parseFloat(document.getElementById('b').value);
+            const display = document.getElementById('resultado');
+
+            if (isNaN(valA) || isNaN(valB)) {
+                display.textContent = "Por favor, ingrese ambos números.";
+                return;
+            }
+
+            let res;
+
+            switch (operacion) {
+                case 'suma':
+                    res = valA + valB;
+                    display.textContent = valA + " + " + valB + " = " + res;
+                    break;
+                case 'resta':
+                    res = valA - valB;
+                    display.textContent = valA + " - " + valB + " = " + res;
+                    break;
+                case 'division':
+                    if (valB === 0) {
+                        display.textContent = "No se puede dividir entre cero";
+                    } else {
+                        res = (valA / valB).toFixed(2);
+                        display.textContent = valA + " / " + valB + " = " + res;
+                    }
+                    break;
+                case 'multiplicacion':
+                    res = valA * valB;
+                    display.textContent = valA + " * " + valB + " = " + res;
+                    break;
+
+            }
+        }
+
+        function limpiar() {
+            document.getElementById('a').value = '';
+            document.getElementById('b').value = '';
+            document.getElementById('resultado').textContent = 'Esperando operación...';
+        }
+    </script>
 </body>
 </html>

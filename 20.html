@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form action="">
-        <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> 
-    </form>
+    <div class="contenedor">
+        <h2>Operaciones con Variables</h2>
+        <p>Suma: <span id="res-suma"></span></p>
+        <p>Resta: <span id="res-resta"></span></p>
+        <p>División: <span id="res-div"></span></p>
+        <p>Exponenciación: <span id="res-exp"></span></p>
+    </div>
+
+    <script>
+        let a = 15;
+        let b = 4;
+
+        const suma = a + b;
+        const resta = a - b;
+        const division = a / b;
+        const potencia = a ** b;
+
+        document.getElementById('res-suma').textContent = suma;
+        document.getElementById('res-resta').textContent = resta;
+        document.getElementById('res-div').textContent = division.toFixed(2);
+        document.getElementById('res-exp').textContent = potencia;
+    </script>
+
+    <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> 
+
 </body>
 </html>

@@ -3,12 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodriguez Ley Actividad 22</title>
+    <title>Rodriguez Ley Actividad 21</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <form action="">
+        <h2>Calcular la Formula General</h2>
+        <p>Ingrese el valor de a:</p>
+        <input type="number" class="textbox" id="a">
+        <p>Ingrese el valor de b:</p>
+        <input type="number" class="textbox" id="b">
+        <p>Ingrese el valor de c:</p>
+        <input type="number" class="textbox" id="c"> <br> <br><br>
+
+
+        <input type="button" class="boton" value="Calcular" onclick="calcular('calcular')"><br>
+        <input type="button" class="boton" value="Limpiar" onclick="calcular('limpiar')"><br>
+        
+        
+        <h3>Resultado para x1: <span id="resultado">Esperando operación...</span></h3>
+        <h3>Resultado para x2: <span id="resultado2">Esperando operación...</span></h3>
+
         <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> 
     </form>
+
+    <script>
+        function calcular(operacion) {
+            const valA = parseFloat(document.getElementById('a').value);
+            const valB = parseFloat(document.getElementById('b').value);
+            const valC = parseFloat(document.getElementById('c').value);
+            const display = document.getElementById('resultado');
+            const display2 = document.getElementById('resultado2');
+
+            if (isNaN(valA) || isNaN(valB) || isNaN(valC)) {
+                display.textContent = "Por favor, ingrese todos los números.";
+                return;
+            }
+
+            let res;
+
+            switch (operacion) {
+                case 'calcular':
+                    const discriminante = valB * valB - 4 * valA * valC;
+                    if (discriminante < 0) {
+                        display.textContent = "No hay soluciones reales.";
+                        display2.textContent = "No hay soluciones reales.";
+                    } else {
+                        const sqrtDiscriminante = Math.sqrt(discriminante);
+                        res = (-valB + sqrtDiscriminante) / (2 * valA);
+                        display.textContent = "x1 = " + res.toFixed(2);
+                        res = (-valB - sqrtDiscriminante) / (2 * valA);
+                        display2.textContent = "x2 = " + res.toFixed(2);
+                    }
+                    break;
+                    case 'limpiar':
+                        document.getElementById('a').value = '';
+                        document.getElementById('b').value = '';
+                        document.getElementById('c').value = '';
+                        document.getElementById('resultado').textContent = 'Esperando operación...';
+                        document.getElementById('resultado2').textContent = 'Esperando operación...';
+                        break;  
+                }
+        }
+
+    </script>
 </body>
 </html>
