@@ -7,9 +7,49 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form action="">
-        <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> 
-    </form>
+    <h2>Ejercicio #19: Salidas con JavaScript</h2>
+
+    <h3>innerHTML / innerText</h3>
+    <p>Haz clic para cambiar el texto de abajo:</p>
+    <p id="demo">Esperando interacción...</p>
+    <button class="boton" onclick="cambiarTexto()">Ejecutar innerText</button>
+
+    <hr>
+    <h3>document.write</h3>
+    <p>Advertencia: document.write borrará todo el contenido actual.</p>
+    <button class="boton" onclick="ejecutarWrite()">Ejecutar document.write</button>
+
+    <hr>
+    <h3>window.alert</h3>
+    <p>Prueba las alertas del navegador:</p>
+    <button class="boton" onclick="ejecutarAlert()">Ejecutar window.alert</button>
+
+    <hr>
+    <h3>console.log</h3>
+    <p>Mira los resultados en la consola:</p>
+    <button class="boton" onclick="ejecutarConsole()">Ejecutar console.log</button>
+
+    <script>
+        function cambiarTexto() {
+            document.getElementById("demo").innerText = "¡Hola Mundo!";
+        }
+
+        function ejecutarWrite() {
+            document.write(5 + 6);
+            document.write("<br> <button onclick='window.location.reload()'>Volver a la página anterior</button>");
+        }
+
+        function ejecutarAlert() {
+            window.alert(5 + 6);
+        }
+
+        function ejecutarConsole() {
+            console.log("El resultado es: " + (5 + 6));
+        }
+    </script>
+<br><br><br>
+    <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> 
+
     
 </body>
 </html>
