@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Actividad #24</title>
+</head>
+<body>
+    <br> <br> 
+    <h2>Fechas con JavaScript</h2>
+    
+    <script>
+        const fecha = new Date();
+        let numDiaSemana = fecha.getDay();
+        let numDiaMes = fecha.getDate();
+        let numMes = fecha.getMonth();
+        let año = fecha.getFullYear();
+
+        let nombreDia;
+        let nombreMes;
+
+        switch (numDiaSemana){
+            case 0: nombreDia = "Domingo"; break;
+            case 1: nombreDia = "Lunes"; break;
+            case 2: nombreDia ="Martes"; break;
+            case 3: nombreDia = "Miercoles"; break;
+            case 4: nombreDia ="Jueves"; break;
+            case 5: nombreDia ="Viernes"; break;
+            case 6: nombreDia = "Sabado"; break;
+        }
+
+        switch (numMes){
+            case 0: nombreMes = "Enero"; break;
+            case 1: nombreMes = "Febrero"; break;
+            case 2: nombreMes = "Marzo"; break;
+            case 3: nombreMes = "Abril"; break;
+            case 4: nombreMes = "Mayo"; break;
+            case 5: nombreMes = "Junio"; break;
+            case 6: nombreMes = "Julio"; break;     
+            case 7: nombreMes = "Agosto"; break;
+            case 8: nombreMes = "Septiembre"; break;
+            case 9: nombreMes = "Octubre"; break;
+            case 10: nombreMes = "Noviembre"; break;
+            case 11: nombreMes = "Diciembre"; break;
+        }
+        document.write(`<h3>Hoy es ${nombreDia} ${numDiaMes} de ${nombreMes} del año ${año}</h3>`);
+
+    </script>
+    <br>
+    <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> <br>
+</body>
+</html>
