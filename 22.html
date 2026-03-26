@@ -25,47 +25,45 @@
         <h3>Resultado para x2: <span id="resultado2">Esperando operación...</span></h3>
 
         <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> 
-    </form>
+
 
     <script>
         function calcular(operacion) {
-            const valA = parseFloat(document.getElementById('a').value);
-            const valB = parseFloat(document.getElementById('b').value);
-            const valC = parseFloat(document.getElementById('c').value);
-            const display = document.getElementById('resultado');
-            const display2 = document.getElementById('resultado2');
+            var a = parseFloat(document.getElementById('a').value);
+            var b = parseFloat(document.getElementById('b').value);
+            var c = parseFloat(document.getElementById('c').value);
+            var display = document.getElementById('resultado');
+            var display2 = document.getElementById('resultado2');
 
-            if (isNaN(valA) || isNaN(valB) || isNaN(valC)) {
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
                 display.textContent = "Por favor, ingrese todos los números.";
                 return;
             }
 
-            let res;
-
-            switch (operacion) {
-                case 'calcular':
-                    const discriminante = valB * valB - 4 * valA * valC;
+            let resultado1, resultado2;
+            const discriminante = b * b - 4 * a * c;
                     if (discriminante < 0) {
                         display.textContent = "No hay soluciones reales.";
                         display2.textContent = "No hay soluciones reales.";
                     } else {
                         const sqrtDiscriminante = Math.sqrt(discriminante);
-                        res = (-valB + sqrtDiscriminante) / (2 * valA);
-                        display.textContent = "x1 = " + res.toFixed(2);
-                        res = (-valB - sqrtDiscriminante) / (2 * valA);
-                        display2.textContent = "x2 = " + res.toFixed(2);
+                        resultado1 = (-b + sqrtDiscriminante) / (2 * a);
+                        display.textContent =  resultado1.toFixed(2);
+                        resultado2 = (-b - sqrtDiscriminante) / (2 * a);
+                        display2.textContent =  + resultado2.toFixed(2);
                     }
-                    break;
-                    case 'limpiar':
+        }
+         function limpiar() {
                         document.getElementById('a').value = '';
                         document.getElementById('b').value = '';
                         document.getElementById('c').value = '';
                         document.getElementById('resultado').textContent = 'Esperando operación...';
                         document.getElementById('resultado2').textContent = 'Esperando operación...';
-                        break;  
+
                 }
-        }
+        
 
     </script>
+    </form>
 </body>
 </html>
