@@ -11,8 +11,11 @@
     margin: 4px 2px;
     cursor: pointer;
     font-size: larger;
+    
 }
-
+ .boton:hover {
+    background-color: #2362b3;
+ }
 
 
 h2{
@@ -191,3 +194,40 @@ table {
     --#{$prefix}list-group-active-border-color: var(--#{$prefix}#{$state}-text-emphasis);
   }
 }
+
+#btnGenerar { 
+  background-color: #372392; /* Green */
+    border: none;
+    color: rgb(245, 247, 235);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8in;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: larger;
+        }
+
+
+        /* Botón Plegar: Oculto por defecto */
+        #btnPlegar {
+            background-color: #372392; /* Green */
+    border: none;
+    color: rgb(245, 247, 235);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8in;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: larger;
+            display: none; 
+        }
+
+        #btnPlegar:hover {
+            background-color: #EE5253;
+        }

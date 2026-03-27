@@ -7,8 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Tablas de multiplicar con JavaScript</h2>
+    <h2>Tablas de multiplicar con JavaScript</h2> <br>
+    <button class="boton" onclick="generarTablas()">Generar tablas de multiplicar</button>
 
+    <div id="contenedor-tablas"></div>
+
+    <script>
+        function generarTablas() {
+            const contenedor = document.getElementById('contenedor-tablas');
+            contenedor.innerHTML = "";
+
+            for (let i = 1; i <= 10; i++) {
+                let divTabla = document.createElement('div');
+                divTabla.className = 'tabla';
+                
+                let contenido = `<h3>Tabla del ${i}</h3>`;
+                
+                for (let j = 1; j <= 10; j++) {
+                    contenido += `<div class="linea">${i} x ${j} = ${i * j}</div>`;
+                }
+                
+                divTabla.innerHTML = contenido;
+                contenedor.appendChild(divTabla);
+            }
+        }
+    </script>
+    <br>
     <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> <br>
 </body>
 </html>

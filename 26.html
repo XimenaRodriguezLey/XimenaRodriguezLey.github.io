@@ -8,8 +8,44 @@
 </head>
 <body>
     <h2>Tablas de multiplicar dinamicas con JavaScript</h2>
+<div class="container">
+    <br>
+        <p>Introduce un número para generar las tablas:</p>
+        <p>(Nota: Se generaran las tablas desde el 1 hasta el numero especificado)</p>
+        <input type="number" class="textbox" id="numeroUsuario" placeholder="Ej: 5" min="1"><br>
+        <br>
+        <button class="boton" onclick="generarTablas()">Generar tablas de multiplicar</button><br>
+    </div>
 
-    
+    <div id="resultado"></div>
+<br><br>
+    <script>
+        function generarTablas() {
+            const input = document.getElementById('numeroUsuario');
+            const contenedor = document.getElementById('resultado');
+            const n = parseInt(input.value);
+
+            if (isNaN(n) || n <= 0) {
+                alert("Por favor, introduce un número entero positivo.");
+                return;
+            }
+
+            contenedor.innerHTML = "";
+
+            for (let i = 1; i <= n; i++) {
+                
+                let tablaHTML = `<div class="tabla-card"><h3>Tabla del ${i}</h3>`;
+                
+                for (let j = 1; j <= 10; j++) {
+                    tablaHTML += `<div class="linea-multiplicacion">${i} × ${j} = <strong>${i * j}</strong></div>`;
+                }
+                
+                tablaHTML += `</div>`;
+                
+                contenedor.innerHTML += tablaHTML;
+            }
+        }
+    </script>
     <input type="button" class="boton" value="Regresar a index" onclick="window.location.href='index.html';"> <br>
 </body>
 </html>
